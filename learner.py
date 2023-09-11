@@ -2,9 +2,10 @@ import nltk
 import imaplib, email
 import pandas as pd
 
+my_host = input('Host:\t')
 my_user = input('Username:\t')
 my_pass = input('Password:\t')
-imap_obj = imaplib.IMAP4_SSL(host='imap.ionos.de')
+imap_obj = imaplib.IMAP4_SSL(host=my_host)
 imap_obj.login(user=my_user, password=my_pass)
 #%%
 dir_list = [d.decode().split(' "/" ')[1] for d in imap_obj.list()[1]]
